@@ -12,7 +12,10 @@ public class Problem4 {
         for (int i = 1; i < n; i++) {
             for (int j = i; j < n; j++) {
                 int product = i * j;
-                if (product > largestPalindromeProduct && isPalindrome(product)) {
+                if (
+                    product > largestPalindromeProduct &&
+                    isPalindrome(product)
+                ) {
                     largestPalindromeProduct = product;
                 }
             }

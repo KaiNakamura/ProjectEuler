@@ -10,7 +10,10 @@ public class Problem3 {
         double largestPrimeFactor = 0;
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
-                return Math.max(largestPrimeFactor, largestPrimeFactor(n / i));
+                return Math.max(
+                    largestPrimeFactor,
+                    largestPrimeFactor(n / i)
+                );
             }
         }
         return n;
