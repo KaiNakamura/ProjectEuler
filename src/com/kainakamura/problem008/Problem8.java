@@ -12,7 +12,7 @@ import java.util.Scanner;
  * greatest product. What is the value of this product?
  */
 public class Problem8 {
-    private static final String PATH = "src/com/kainakamura/problem8";
+    private static final String PATH = "src/com/kainakamura/problem008";
 
     protected static double largestProductInASeries(int n) {
         double largestProduct = 0;
@@ -55,7 +55,7 @@ public class Problem8 {
                 i++;
             }
         } catch (IOException e) {
-            System.err.println("Failed to read string: " + e.getMessage());
+            System.err.println("Failed to read series: " + e.getMessage());
         }
         return series;
     }
