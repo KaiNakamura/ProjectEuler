@@ -13,30 +13,29 @@ import java.util.Scanner;
 public class Problem11 {
     private static final String PATH = "src/com/kainakamura/problem011";
 
-    protected static double largestProductInAGrid(int n) {
-        int[][] grid = loadGrid();
-
-//        return Math.max(
-//            largestHorizontalProduct(n, grid),
-//            largestVerticalProduct(n, grid),
-//            largestDiagonalProduct(n, grid)
-//        );
-        return largestHorizontalProduct(n, grid);
+    protected static double largestProductInAGrid(int[][] grid, int n) {
+        return Math.max(
+            largestProduct(new HorizontalGridIterator(grid, n)),
+            Math.max(
+                largestProduct(new VerticalGridIterator(grid, n)),
+                Math.max(
+                    largestProduct(new DiagonalRightGridIterator(grid, n)),
+                    largestProduct(new DiagonalLeftGridIterator(grid, n))
+                )
+            )
+        );
     }
 
-    protected static double largestHorizontalProduct(int n, int[][] grid) {
+    protected static double largestProduct(GridIterator gridIterator) {
         double largestProduct = 0;
 
-        for (int i = 0; i < grid.length - n; i++) {
-            double product = 1;
-            for (int j = i; j < i + n; j++) {
-                int digit = grid[i][j];
-                // If digit is zero, product will always be zero
-                if (digit == 0) {
-                    product = 0;
+        while (gridIterator.hasNext()) {
+            int product = 1;
+            for (int digit : gridIterator.next()) {
+                product *= digit;
+                if (product == 0) {
                     break;
                 }
-                product *= digit;
             }
 
             if (product > largestProduct) {
@@ -47,14 +46,14 @@ public class Problem11 {
         return largestProduct;
     }
 
-    protected static int[][] loadGrid() {
-        int[][] grid = new int[20][20];
-        File file = new File(PATH + "/grid.txt");
+    protected static int[][] loadGrid(String fileName, int gridSize) {
+        int[][] grid = new int[gridSize][gridSize];
+        File file = new File(PATH + "/" + fileName);
         try {
             InputStream inputStream = Files.newInputStream(file.toPath());
             Scanner scanner = new Scanner(inputStream);
-            for (int i = 0; i < 20; i++) {
-                for (int j = 0; j < 20; j++) {
+            for (int i = 0; i < gridSize; i++) {
+                for (int j = 0; j < gridSize; j++) {
                     grid[i][j] = scanner.nextInt();
                 }
             }
@@ -65,6 +64,6 @@ public class Problem11 {
     }
 
     public static void main(String[] args) {
-        System.out.println(largestProductInAGrid(4));
+        System.out.println(largestProductInAGrid(loadGrid("grid.txt", 20), 4));
     }
 }
