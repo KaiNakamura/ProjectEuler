@@ -1,4 +1,4 @@
-package com.kainakamura.problem008;
+package com.kainakamura.problem011.problem008;
 
 import java.io.*;
 import java.nio.file.Files;
