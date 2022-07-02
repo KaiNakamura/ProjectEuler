@@ -1,4 +1,4 @@
-package com.kainakamura.problem5;
+package com.kainakamura.problem005;
 
 /**
  * 2520 is the smallest number that can be divided by each of the numbers from

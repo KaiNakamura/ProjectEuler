@@ -1,4 +1,4 @@
-package com.kainakamura.problem4;
+package com.kainakamura.problem004;
 
 /**
  * A palindromic number reads the same both ways. The largest palindrome made

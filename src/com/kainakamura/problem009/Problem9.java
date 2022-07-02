@@ -1,4 +1,4 @@
-package com.kainakamura.problem9;
+package com.kainakamura.problem009;
 
 /**
  * A Pythagorean triplet is a set of three natural numbers, a < b < c, where:

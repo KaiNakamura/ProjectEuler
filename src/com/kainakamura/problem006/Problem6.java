@@ -1,4 +1,4 @@
-package com.kainakamura.problem6;
+package com.kainakamura.problem006;
 
 /**
  * The sum of the squares of the first ten natural numbers is:

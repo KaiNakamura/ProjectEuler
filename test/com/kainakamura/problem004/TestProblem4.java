@@ -1,4 +1,4 @@
-package com.kainakamura.problem4;
+package com.kainakamura.problem004;
 
 import org.junit.Test;
 
